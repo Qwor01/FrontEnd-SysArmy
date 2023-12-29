@@ -24,11 +24,12 @@ const Navbar = ({setCarouselView, setNavbarView, setNerdearlaView, setBirrasView
     const DiscordLink = "https://discord.gg/JZN2kuPB";
     const PolemicaYtLink = "https://www.youtube.com/watch?v=-iCsIt1kGy4&list=PLPXjriojfnRUFxHXucPTF1AFQlG4z3vro&ab_channel=sysarmy";
     const TiendaLink = "https://tienda.sysarmy.com/password/";
+    const BlogLink = "https://sysarmy.com/blog/";
 
     const navLinks = [
       { onClick: cambiarHome, label: "Home" },
       { onClick: cambiarNerdearla, label: "Nerdearla" },
-      { href: "#products", label: "Blog" },
+      { onClick: () => window.open(BlogLink, "_blank"), label: "Blog" },
       { onClick: () => window.open(DiscordLink, "_blank"), label: "Discord" },
       { onClick: cambiarAdminBirras, label: "AdminBirras" },
       { onClick: () => window.open(PolemicaYtLink, "_blank"), label: "Polemica en el /var" },
