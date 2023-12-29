@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "setup": "npm install -D tailwindcss framer-motion && npm install --save @leenguyen/react-flip-clock-countdown"
   },
   "dependencies": {
     "@babel/runtime": "^7.23.6",
