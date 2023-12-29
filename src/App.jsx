@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import Carousel from './assets/Components/carousel'
+import Carousel from './assets/Components/Carousel'
 import Navbar from './assets/Components/Navbar';
 import Nerdearla from './assets/Components/Nerdearla';
 import Birras from './assets/Components/Birras';
