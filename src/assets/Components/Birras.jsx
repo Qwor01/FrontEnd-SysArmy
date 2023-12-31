@@ -30,7 +30,7 @@ const Birras = () => {
 
   return (
     <div className='bg-neutral-900 h-screen'>
-        <h1 className='text-white text-center text-7xl subpixel-antialiased font-bold p-8 sm:w-screen md:w-full'> {`Próximas AdminBirras: ${formatearEspañol(birrasDate)}`} </h1>
+        <h1 className='flex text-white justify-center text-center text-7xl subpixel-antialiased font-bold p-8 sm:w-screen md:w-full'> {`Próximas AdminBirras: ${formatearEspañol(birrasDate)}`} </h1>
         <div className='grid grid-flow-row-dense sm:flex-col md:grid-cols-2 gap-4'>
         <div className='flex items-center justify-center sm:w-screen md:w-full text-center'> 
             <p className='text-white p-5 text-xl font-semibold'>
