@@ -29,10 +29,10 @@ const Birras = () => {
     const birrasDate = fechaBirras();
 
   return (
-    <div className='bg-neutral-900 h-screen'>
+    <div className='bg-neutral-900'>
         <h1 className='text-white text-center text-7xl subpixel-antialiased font-bold p-8'> {`Próximas AdminBirras: ${formatearEspañol(birrasDate)}`} </h1>
-        <div className='grid grid-flow-row-dense sm:flex-col md:grid-cols-2 gap-4 mb-12'>
-        <div className='flex items-center justify-center'> 
+        <div className='grid grid-flow-row-dense sm:flex-col md:grid-cols-2 gap-4'>
+        <div className='flex items-center justify-center w-screen text-center'> 
             <p className='text-white p-5 text-xl font-semibold'>
             Seas SysAdmin, Developer, DBA, InfoSec, Networking o de cualquier profesión ligada a sistemas.
             Incluso si te interesa este ámbito, las #AdminBirras son tu lugar.
@@ -40,7 +40,7 @@ const Birras = () => {
             </p>
         </div>
         <div>
-            <iframe
+            <iframe className='sm:w-screen md:w-[660px]'
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.7777137940484!2d-58.438660124260515!3d-34.58449067296121!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb58d95806995%3A0x7a95222bacc4ef98!2sHonduras%205560%2C%20C1414BND%20CABA%2C%20Argentina!5e0!3m2!1ses-419!2ses!4v1703678048594!5m2!1ses-419!2ses"
             width="600"
             height="450"

@@ -22,7 +22,7 @@ const Nerdearla = () => {
       <h1 className='text-white text-center text-4xl md:text-7xl subpixel-antialiased font-bold p-8 bg-neutral-900'>Cuenta regresiva hasta la próxima Nerdearla
       </h1>
       </div>
-      <div className='flex sm:hidden'>
+      <div className='flex md:hidden justify-center'>
         <h1 className='text-white text-center text-4xl md:text-7xl subpixel-antialiased font-bold p-8 bg-neutral-900'>
           {`Faltan ${fechaNerdear} días para Nerdearla`}
         </h1>
