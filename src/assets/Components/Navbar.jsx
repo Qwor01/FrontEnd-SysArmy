@@ -14,10 +14,12 @@ const Navbar = ({setCarouselView, setNavbarView, setNerdearlaView, setBirrasView
     const cambiarAdminBirras = () =>{
         setBirrasView(true);
         setNerdearlaView(false);
+        setIsMenuOpen(false);
     }
     const cambiarNerdearla = () =>{
         setBirrasView(false);
         setNerdearlaView(true);
+        setIsMenuOpen(false);
     }
 
     //Links a las páginas externas
@@ -61,7 +63,7 @@ const Navbar = ({setCarouselView, setNavbarView, setNerdearlaView, setBirrasView
         </header>
         {isMenuOpen && (
           <div>
-            <nav className="fixed top-0 right-0 left-0 bottom-0 lg:bottom-auto bg-slate-100  ">
+            <nav className="fixed top-0 right-0 left-0 bottom-0 lg:bottom-auto bg-neutral-800  ">
               <div
                 className="hidden max-lg:block fixed right-0  px-8 py-4 cursor-pointer"
                 onClick={() => {
@@ -70,15 +72,12 @@ const Navbar = ({setCarouselView, setNavbarView, setNerdearlaView, setBirrasView
               >
                 <AiOutlineClose className="text-4xl" />
               </div>
-              <ul className=" lg:hidden flex flex-col items-center justify-center h-full ">
+              <ul className=" lg:hidden flex flex-col items-center justify-center h-full text-white">
                 {navLinks.map((item) => (
-                  <li key={item.label}>
-                    <a
-                      href={item.href}
-                      className="font-montserrat leading-normal text-lg text-slate-gray"
-                    >
-                      {item.label}
-                    </a>
+                  <li key={item.label} >
+                  <button onClick={item.onClick} className="font-montserrat leading-normal text-lg text-slate-gray">
+                    {item.label}
+                  </button>
                   </li>
                 ))}
               </ul>

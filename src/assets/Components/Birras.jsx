@@ -31,7 +31,7 @@ const Birras = () => {
   return (
     <div className='bg-neutral-900 h-screen'>
         <h1 className='text-white text-center text-7xl subpixel-antialiased font-bold p-8'> {`Próximas AdminBirras: ${formatearEspañol(birrasDate)}`} </h1>
-        <div className='grid grid-flow-row-dense grid-cols-2 gap-4'>
+        <div className='grid grid-flow-row-dense sm:flex-col md:grid-cols-2 gap-4 mb-12'>
         <div className='flex items-center justify-center'> 
             <p className='text-white p-5 text-xl font-semibold'>
             Seas SysAdmin, Developer, DBA, InfoSec, Networking o de cualquier profesión ligada a sistemas.

@@ -17,14 +17,41 @@ const Carousel = ({setCarouselView, setNavbarView, setNerdearlaView, setBirrasVi
       <div className="flex h-50 items-center justify-center">
         <img src="https://timeline.sysarmy.com/wp-content/uploads/2022/09/10anios-1.svg" alt="Logo Sysarmy"/>
       </div>
+      <div className="hidden md:block">
       <HorizontalScrollCarousel 
         setCarouselView = {setCarouselView}
         setNavbarView = {setNavbarView}
         setNerdearlaView = {setNerdearlaView}
         setBirrasView = {setBirrasView}
       />
+      </div>
+      <div className="sm:block md:hidden">
+        <VerticalList 
+          setCarouselView = {setCarouselView}
+          setNavbarView = {setNavbarView}
+          setNerdearlaView = {setNerdearlaView}
+          setBirrasView = {setBirrasView}
+        />
+      
+      </div>
       <Footer />
     </div>
+  );
+};
+
+const VerticalList = ({setCarouselView, setNavbarView, setNerdearlaView, setBirrasView}) => {
+  return(
+    <div className="flex flex-col gap-4 items-center justify-center">
+      {cards.map((card)=>{
+        return <Card card={card} key={card.id}
+        setCarouselView = {setCarouselView}
+        setNavbarView = {setNavbarView}
+        setNerdearlaView = {setNerdearlaView}
+        setBirrasView = {setBirrasView}
+        />;
+      })}
+    </div>
+    
   );
 };
 
