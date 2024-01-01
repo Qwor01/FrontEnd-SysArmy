@@ -1,5 +1,5 @@
 import { motion, useTransform, useScroll } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import Nerdearla from "../../imgs/nerdearla.jpg";
 import Blog from "../../imgs/blog.jpg";
 import Discord from "../../imgs/discord.jpg";
@@ -7,7 +7,6 @@ import Polemica from "../../imgs/polemica.jpg";
 import AdminBirras from "../../imgs/adminbirras.jpeg";
 import './Carousel.css'
 import Footer from "./Footer";
-
 
 
 
@@ -39,19 +38,43 @@ const Carousel = ({setCarouselView, setNavbarView, setNerdearlaView, setBirrasVi
   );
 };
 
-const VerticalList = ({setCarouselView, setNavbarView, setNerdearlaView, setBirrasView}) => {
-  return(
-    <div className="flex flex-col gap-4 items-center justify-center">
-      {cards.map((card)=>{
-        return <Card card={card} key={card.id}
-        setCarouselView = {setCarouselView}
-        setNavbarView = {setNavbarView}
-        setNerdearlaView = {setNerdearlaView}
-        setBirrasView = {setBirrasView}
-        />;
-      })}
-    </div>
+
+//Verificar el tamaño máximo de la pantalla
+function useMedia(query) {
+  const [matches, setMatches] = useState(window.matchMedia(query).matches);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia(query);
+    const updateMatches = () => setMatches(mediaQuery.matches);
+
+    updateMatches(); 
+
     
+    mediaQuery.addEventListener('change', updateMatches);
+
+    
+    return () => mediaQuery.removeEventListener('change', updateMatches);
+  }, [query]);
+
+  return matches;
+}
+
+const VerticalList = ({ setCarouselView, setNavbarView, setNerdearlaView, setBirrasView }) => {
+  const isSmallScreen = useMedia('(max-width: 639px)');
+  return (
+    <div className="flex flex-col gap-4 items-center justify-center">
+      {cards.map((card) => (
+        <Card
+          card={card}
+          key={card.id}
+          setCarouselView={setCarouselView}
+          setNavbarView={setNavbarView}
+          setNerdearlaView={setNerdearlaView}
+          setBirrasView={setBirrasView}
+          isVertical= {isSmallScreen}// Se pasa el tamaño de pantalla para saber si es pequeña
+        />
+      ))}
+    </div>
   );
 };
 
@@ -81,7 +104,7 @@ const HorizontalScrollCarousel = ({ setCarouselView, setNavbarView, setNerdearla
   );
 };
 
-const Card = ({ card, setCarouselView, setNavbarView, setNerdearlaView, setBirrasView }) => {
+const Card = ({ card, setCarouselView, setNavbarView, setNerdearlaView, setBirrasView, isVertical }) => {
 
     //Links a las páginas externas
     const BlogLink = "https://sysarmy.com/blog/";
@@ -115,9 +138,9 @@ const Card = ({ card, setCarouselView, setNavbarView, setNerdearlaView, setBirra
 
     return (
         <div
-            key={card.id}
-            className="group relative h-[450px] w-[450px] overflow-hidden bg-neutral-200"
-            onClick={cambiarVista}
+          key={card.id}
+          className={`group relative h-[450px] ${isVertical ? 'w-full' : 'w-[450px]'} overflow-hidden bg-neutral-200`}
+          onClick={cambiarVista}
         >
             <div
                 style={{
